@@ -22,7 +22,7 @@ const config: Config = {
         paleOrange: "hsl(25, 100%, 94%)",
         veryDarkBlue: "hsl(220, 13%, 13%)",
         darkGreyishBlue: "hsl(219, 9%, 45%)",
-        greyishBlur: "hsl(220, 14%, 75%)",
+        greyishBlue: "hsl(220, 14%, 75%)",
         lightGreyishBlue: "hsl(223, 64%, 98%)",
         black: "hsl(0, 0%, 0%)",
       },

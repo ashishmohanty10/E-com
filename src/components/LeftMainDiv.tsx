@@ -25,12 +25,7 @@ export function LeftMainDiv() {
 
   const [mainProductImage, setMainProcutImage] = useState(images[0]);
 
-  // currentImageIndex ==3
-  // imges.length ==4
-
   function nextImage() {
-    // if (images.length > 5)
-    // 3+1 > 4
     if (currentImageIndex + 1 < images.length) {
       setCurrentImageIndex(currentImageIndex + 1);
       setMainProcutImage(images[currentImageIndex + 1]);
@@ -40,12 +35,8 @@ export function LeftMainDiv() {
   }
 
   function preImage() {
-    // if (images.length > 5)
     setCurrentImageIndex(currentImageIndex - 1);
-    // 3-1 > 4
 
-    // 0-1  4
-    // 3-1 <4 &&  3>0)
     if (currentImageIndex - 1 < images.length && currentImageIndex > 0) {
       setMainProcutImage(images[currentImageIndex - 1]);
     } else {
@@ -54,7 +45,10 @@ export function LeftMainDiv() {
   }
 
   return (
-    <div ref={animationParent} className=" md:w-1/2 flex  gap-4 flex-col">
+    <div
+      ref={animationParent}
+      className=" md:w-1/2 flex  gap-4 flex-col mb-5 md:mb-0 items-center md:items-start"
+    >
       <Image
         onClick={() => setModal(true)}
         className="w-[384px] h-[384px] hidden md:flex rounded-xl cursor-pointer "

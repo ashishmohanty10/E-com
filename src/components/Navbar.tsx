@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Logo from "../../public/logo.svg";
 import MenuBtn from "../../public/icon-menu.svg";
 import CloseBtn from "../../public/icon-close.svg";
@@ -8,12 +8,24 @@ import CartIcon from "../../public/icon-cart.svg";
 import ProfiltImg from "../../public/image-avatar.png";
 import Image from "next/image";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Link from "next/link";
+import { HiShoppingCart, HiTrash } from "react-icons/hi";
+import productimg1 from "../../public/image-product-1.jpg";
+import { useAtom } from "jotai";
+import { productAtom } from "@/atom";
+import { CartUi } from "./CartUI";
 
 const Navbar = () => {
+  const [product] = useAtom(productAtom);
   const [sideNav, setSideNav] = useState(false);
   const [parent] = useAutoAnimate();
+  const [isCart, setCart] = useState(false);
+
+  function toggleCartUi() {
+    setCart(!isCart);
+  }
   return (
-    <div className="h-[10vh] flex justify-between items-center md:border-b border-greyishBlur">
+    <div className="h-[10vh] flex justify-between items-center md:border-b border-greyishBlur mb-5">
       {/* right div */}
       <div className="flex items-center gap-5">
         <div className="flex items-center gap-5" ref={parent}>
@@ -30,14 +42,14 @@ const Navbar = () => {
         </div>
 
         {/* Desktop navLinks */}
-        <div className="hidden md:flex gap-5">
+        <div className="flex gap-5">
           {navLinks.map((data, idx) => {
             return (
-              <ul key={idx}>
-                <li className="text-sm font-medium hover:text-primaryOrange duration-75">
+              <Link href={data.href} key={idx}>
+                <span className="hidden md:flex items-center text-sm font-medium h-[10vh] border-b-[4px]   border-transparent   hover:border-primaryOrange hover:text-primaryOrange duration-75">
                   {data.title}
-                </li>
-              </ul>
+                </span>
+              </Link>
             );
           })}
         </div>
@@ -45,8 +57,18 @@ const Navbar = () => {
 
       {/* left div */}
       <div className="flex items-center gap-5">
-        <div className="cursor-pointer">
-          <Image src={CartIcon} alt="Cart Icon" />
+        <div className="relative cursor-pointer">
+          <HiShoppingCart
+            onClick={toggleCartUi}
+            className="text-3xl cursor-pointer"
+          />
+          {product ? (
+            <div className="bg-orange-500 text-white h-5 w-4 text-xs rounded-full flex items-center justify-center absolute top-[-5px] right-0">
+              {" "}
+              {product?.productCount}
+            </div>
+          ) : null}
+          {isCart && <CartUi />}
         </div>
 
         <div className="cursor-pointer">
@@ -67,24 +89,29 @@ const navLinks = [
   {
     id: 1,
     title: "Collection",
+    href: "#",
   },
   {
     id: 1,
     title: "Men",
+    href: "#",
   },
 
   {
     id: 1,
     title: "Women",
+    href: "#",
   },
 
   {
     id: 1,
     title: "About",
+    href: "#",
   },
   {
     id: 1,
     title: "Contact",
+    href: "#",
   },
 ];
 
@@ -117,3 +144,5 @@ function MobileNav({ setSideNav }: MobileNav) {
     </div>
   );
 }
+
+// cart UI

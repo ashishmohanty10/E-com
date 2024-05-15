@@ -1,4 +1,4 @@
-import LeftMainDiv from "@/components/LeftMainDiv";
+import { LeftMainDiv } from "@/components/LeftMainDiv";
 import RightMainDiv from "@/components/RightMainDiv";
 import Image from "next/image";
 

@@ -5,7 +5,7 @@ export const countAtom = atom(0);
 
 type productAtomType = {
   image: string | StaticImageData;
-  procutName: string;
+  productName: string;
   productPrice: number;
   productCount: number;
 };

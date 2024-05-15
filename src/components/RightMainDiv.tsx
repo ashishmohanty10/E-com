@@ -22,7 +22,7 @@ const RightMainDiv = () => {
   function addToCart() {
     setProduct({
       image: ProductImg1,
-      procutName: "Autumn Limited Edition...",
+      productName: "Autumn Limited Edition...",
       productCount: count,
       productPrice: 125,
     });
@@ -66,7 +66,10 @@ const RightMainDiv = () => {
           </button>
         </div>
 
-        <button className="h-14 w-[200px] items-center justify-center flex gap-3 bg-primaryOrange text-white  rounded-md ">
+        <button
+          className="h-14 w-[200px] items-center justify-center flex gap-3 bg-primaryOrange text-white  rounded-md "
+          onClick={addToCart}
+        >
           <span>
             <HiShoppingCart className="text-xl" />
           </span>

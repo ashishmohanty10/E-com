@@ -38,9 +38,9 @@ const RightMainDiv = () => {
       </h2>
 
       <p className="text-sm font-medium text-darkGreyishBlue  tracking-tight leading-relaxed mb-4">
-        These low-profile sneakers are your perfect casual wear companion.
+        `These low-profile sneakers are your perfect casual wear companion.
         Featuring a durable rubber outer sole,they'll withstand everything the
-        weather can offer
+        weather can offer`
       </p>
 
       <p className="flex gap-2 items-center">

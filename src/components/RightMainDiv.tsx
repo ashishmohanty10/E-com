@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { HiOutlinePlusSm, HiPlusSm, HiShoppingCart } from "react-icons/hi";
+import { HiPlusSm, HiShoppingCart } from "react-icons/hi";
 import { HiMinusSm } from "react-icons/hi";
 import { countAtom, productAtom } from "../atom";
 import { useAtom } from "jotai";
